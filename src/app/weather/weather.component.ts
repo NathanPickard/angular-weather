@@ -18,6 +18,8 @@ export class WeatherComponent implements OnInit {
     });
   }
 
-  sendToWeatherStack(formValues) { }
+  sendToWeatherStack(formValues) {
+    console.log(formValues);
+  }
 
 }
