@@ -11,6 +11,7 @@ import { WeatherstackService } from './../weatherstack.service';
 export class WeatherComponent implements OnInit {
 
   public weatherSearchForm: FormGroup;
+  public weatherData: any;
 
   constructor(private formBuilder: FormBuilder, private weatherstackService: WeatherstackService) { }
 
@@ -21,9 +22,11 @@ export class WeatherComponent implements OnInit {
   }
 
   sendToWeatherStack(formValues) {
-    console.log(formValues);
     this.weatherstackService.getWeather(formValues.location)
-      .subscribe(data => console.log(data));
+      .subscribe(data => {
+        this.weatherData = data;
+        console.log(this.weatherData);
+      });
   }
 
 }
